@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎃 Halloween</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+
+    #start {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    #start-btn {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #fff;
+      background-color: #e63946;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    #start-btn:hover {
+      background-color: #d62828;
+      transform: scale(1.05);
+    }
+
+    #video-container {
+      display: none;
+      width: 100%;
+      height: 100%;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="start">
+    <h1>🎃 Prêt pour la surprise ?</h1>
+    <button id="start-btn" onclick="startJumpscare()">Clique ici</button>
+  </div>
+
+  <div id="video-container">
+    <video id="jumpscare-video" playsinline>
+      <source src="v12044gd0000ctuhnrvog65nfe3v8d30.mp4#t=20" type="video/mp4">
+      Votre navigateur ne prend pas en charge la lecture de vidéos.
+    </video>
+  </div>
+
+  <script>
+    function startJumpscare() {
+      const startScreen = document.getElementById('start');
+      const videoContainer = document.getElementById('video-container');
+      const video = document.getElementById('jumpscare-video');
+
+      // Masque le bouton et affiche la vidéo
+      startScreen.style.display = 'none';
+      videoContainer.style.display = 'block';
+
+      // Saute directement à la fin de la vidéo (20 secondes) et lance la lecture
+      video.currentTime = 20; 
+      video.play();
+    }
+  </script>
+
+</body>
+</html>
